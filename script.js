@@ -143,14 +143,3 @@ if (level1 !== null) {
     });
 }
 
-const msg2 = document.getElementById("msg2");
-
-if (move !== null) {
-    setTimeout(() => {
-        msg2.innerHTML = "Sorry! you ran out of time.";
-        toggleModal();
-        setTimeout(() => {
-            window.location.reload();
-        }, 2000);
-     }, 30000);
- }
