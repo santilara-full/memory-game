@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Puritan:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,16 +9,20 @@ body {
     width: 100vw;
     height: 100vh;
     box-sizing: border-box;
-    background-color: rgba(8, 91, 245, 0.651);
+    background: url("./Images/Background_Pokemon.jpg");
+    background-size: cover;
+    background-position: center center;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Puritan", sans-serif;
 }
 
 .board {
     height: 450px;
     width: 460px;
-    background-color: aliceblue;
+    background-color: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(4px);
     position: fixed;
     display: flex;
     justify-content: center;
@@ -24,7 +30,7 @@ body {
     flex-wrap: wrap;
     perspective: 1000px;
     border-radius: 10px;
-    box-shadow: -3px 5px 5px 3px rgba(0, 0, 0, 0.363);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
 }
 
 .shake {
@@ -80,9 +86,9 @@ body {
 .count {
     height: 100px;
     width: 91px;
-    background-color: aliceblue;
+    background-color: white;
     border-radius: 10px;
-    color: aliceblue;
+    color: white;
     margin: 0px 10px;
     box-shadow: -3px 5px 5px 3px rgba(0, 0, 0, 0.363);
     display: flex;
@@ -102,9 +108,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: aliceblue;
+    color: white;
     box-shadow: -3px 5px 5px 3px rgba(0, 0, 0, 0.363);
-    background-color: rgba(8, 91, 245, 0.925);
+    background-color: #fe080a;
     font-size: 1.6rem;
     font-weight: 600;
 }
@@ -116,13 +122,13 @@ body {
 .card {
     height: 100px;
     width: 91px;
-    background-color: rgba(8, 91, 245, 0.651);
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 100px;
     margin: 0px 10px;
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.8s ease;
-    box-shadow: -3px 5px 5px 3px rgba(0, 0, 0, 0.363);
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.15);
     cursor: pointer;
 }
 
@@ -136,17 +142,32 @@ body {
     height: 100%;
     width: 100%;
     backface-visibility: hidden;
-    border-radius: 10px;
+    border-radius: 100px;
 }
 
 .card .front {
-    color: aliceblue;
-    background-color: rgba(8, 91, 245, 0.651);
+    --width: 6%;
+    border: 4px solid black;
+    color: transparent;
+    background: linear-gradient(to bottom, #fe080a calc(50% - var(--width)/2), black calc(50% - var(--width)/2), black calc(50% + var(--width)/2), white calc(50% + var(--width)/2));
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 5rem;
     font-weight: 400;
+}
+
+.card .front::after {
+    content: "";
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    position: absolute;
+    top: calc(50%-var(--width));
+    left: calc(50%-var(--width));
+    border-radius: var(--width);
+    border: 4px solid black;
+    background-color: white;
 }
 
 .card .back {
@@ -157,11 +178,12 @@ body {
     width: 50px;
     height: 50px;
     box-sizing: border-box;
-    padding: 18px;
+    padding: 8px;
 }
 
 .btn {
-    background-color: aliceblue;
+    background-color: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,7 +193,7 @@ body {
     width: 250px;
     height: 70px;
     font-size: 1.6rem;
-    left: calc(50% - 150px);
+    left: calc(50% - 125px);
     box-shadow: -3px 5px 5px 3px rgba(0, 0, 0, 0.363);
 }
 
@@ -179,21 +201,25 @@ body {
 #level2 {
     width: 120px;
     height: 50px;
-    border: 1px solid rgba(8, 91, 245, 0.925);
+    border: 2px solid #fe080a;
     border-radius: 10px;
     margin: 0px 10px;
     display: flex;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.75);
     align-items: center;
-    color: rgba(8, 91, 245, 0.651);
+    color: #fe080a;
     font-size: 1.4rem;
     font-weight: 600;
     cursor: pointer;
+    transition-property: background-color, color;
+    transition-duration: .3s;
+    transition-timing-function: ease-in-out;
 }
 #refresh:hover,
 #level2:hover{
     color: aliceblue;
-    background-color: rgba(8, 91, 245, 0.651);
+    background-color: #fe080a;
 }
 
 .trigger{
