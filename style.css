@@ -76,8 +76,8 @@ body {
 .card {
     height: 100px;
     width: 91px;
-    background-color: rgb(50, 119, 248, 0.651);
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 100px;
     margin: 0px 10px;
     position: relative;
     transform-style: preserve-3d;
@@ -96,17 +96,33 @@ body {
     height: 100%;
     width: 100%;
     backface-visibility: hidden;
-    border-radius: 10px;
+    border-radius: 100px;
+    box-sizing: border-box;
 }
 
 .card .front {
-    color: aliceblue;
-    background-color:rgba(50, 119, 248, 0.651);
+    --width: 6%;
+    border: 4px solid black;
+    color: transparent;
+    background: linear-gradient(to bottom, #fe080a calc(50% - var(--width)/2), black calc(50% - var(--width)/2), black calc(50% + var(--width)/2),  white calc(50% + var(--width)/2));
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 5rem;
     font-weight: 400;
+}
+
+.card .front::after {
+    content: "";
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    position: absolute;
+    top: calc(50%-var(--width));
+    left: calc(50%-var(--width));
+    border-radius: var(--width);
+    border: 4px solid black;
+    background-color: white;
 }
 
 .card .back {
