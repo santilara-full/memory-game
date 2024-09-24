@@ -108,6 +108,11 @@ function showWin() {
     if (count == (cards.length) / 2) {
         msg.innerHTML = msg.innerHTML + `${moves}` + " moves";
         toggleModal2();
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+          });
         setTimeout(() => {
             refresh.click();
         }, 3000);
